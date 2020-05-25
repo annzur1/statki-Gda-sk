@@ -109,5 +109,5 @@ print(moj_statek3_1.pola_masztow)
 print(moj_statek2.pola_masztow)
 print(moj_statek2_1.pola_masztow)
 
-##### pokazuje pozcje pól nieaktywnych #####
+##### ponnkazuje pozcje pól nieaktywnych #####
 print(kukuryku)
