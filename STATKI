@@ -199,3 +199,118 @@ print("pola już nieaktywne: ",pola_nieaktywne)
 print("pola statku: ", p_statki)
 
 print(len(p_statki[0]))
+
+#### Strzelanie i rozstrzyganie gry ####
+
+komp = [[[1, 6], [2, 6], [3, 6], [4, 6], [5, 6]], [[9, 2], [9, 3], [9, 4], [9, 5]], [[3, 1], [4, 1], [5, 1]], [[2, 3], [3, 3], [4, 3]], [[3, 9], [4, 9]], [[8, 10], [9, 10]]]
+ast = [[[1, 6], [2, 6], [3, 6], [4, 6], [5, 6]], [[9, 2], [9, 3], [9, 4], [9, 5]], [[3, 1], [4, 1], [5, 1]], [[2, 3], [3, 3], [4, 3]], [[3, 9], [4, 9]], [[8, 10], [9, 10]]]
+
+#### te listy do zastapienia ####
+
+print(len(ast))
+
+##### lista żeby komputer nie powtarzał już strzelanych pól ####
+juz_strzelane = []
+while True:
+    if len(ast) == 0 or len(komp) == 0:
+        break
+    else:
+        x_s = int(input("podaj wsp x do strzlu: "))
+        y_s = int(input("podaj wsp y do strzlu: "))
+        os.system("cls")
+        strzal = [x_s, y_s]
+        if strzal in ast[0]:
+            print("TAK")
+            ast[0].remove(strzal)
+            if len(ast[0]) == 0:
+                print("statek poszedł na dno!")
+                ast.remove(ast[0])
+        elif strzal in ast[1]:
+            print("TAK")
+            ast[1].remove(strzal)
+            if len(ast[1]) == 0:
+                print("statek poszedł na dno!")
+                ast.remove(ast[1])
+        elif strzal in ast[2]:
+            print("TAK")
+            ast[2].remove(strzal)
+            if len(ast[2]) == 0:
+                print("statek poszedł na dno!")
+                ast.remove(ast[2])
+        elif strzal in ast[3]:
+            print("TAK")
+            ast[3].remove(strzal)
+            if len(ast[3]) == 0:
+                print("statek poszedł na dno!")
+                ast.remove(ast[3])
+        elif strzal in ast[4]:
+            print("TAK")
+            ast[4].remove(strzal)
+            if len(ast[4]) == 0:
+                print("statek poszedł na dno!")
+                ast.remove(ast[4])
+        elif strzal in ast[5]:
+            print("TAK")
+            ast[5].remove(strzal)
+            if len(ast[5]) == 0:
+                print("statek poszedł na dno!")
+                ast.remove(ast[5])
+        else:
+            print("pudło!")
+
+        print("teaz strzela komputer!!!!!!!!!!!!!!!!!!!!!")
+
+        while True:
+            x_komp = random.randint(1,10)
+            y_komp = random.randint(1,10)
+            strzal_komputera = [x_komp,y_komp]
+            print(strzal_komputera)
+            if strzal_komputera in juz_strzelane:
+                True
+            else:
+                juz_strzelane.append(strzal_komputera)
+                break
+        print(juz_strzelane)
+        if strzal_komputera in komp[0]:
+            print("Trafiony!")
+            komp[0].remove(strzal_komputera)
+            if len(komp[0]) == 0:
+                print("statek poszedł na dno!")
+                komp.remove(komp[0])
+        elif strzal_komputera in komp[1]:
+            print("Trafiony!")
+            komp[1].remove(strzal_komputera)
+            if len(komp[1]) == 0:
+                print("statek poszedł na dno!")
+                komp.remove(komp[1])
+        elif strzal_komputera in komp[2]:
+            print("Trafiony!")
+            komp[2].remove(strzal_komputera)
+            if len(komp[2]) == 0:
+                print("statek poszedł na dno!")
+                komp.remove(komp[2])
+        elif strzal_komputera in komp[3]:
+            print("Trafiony!")
+            komp[3].remove(strzal_komputera)
+            if len(komp[3]) == 0:
+                print("statek poszedł na dno!")
+                komp.remove(komp[3])
+        elif strzal_komputera in komp[4]:
+            print("Trafiony!")
+            komp[4].remove(strzal_komputera)
+            if len(komp[4]) == 0:
+                print("statek poszedł na dno!")
+                komp.remove(komp[4])
+        elif strzal_komputera in komp[5]:
+            print("Trafiony!")
+            komp[5].remove(strzal_komputera)
+            if len(komp[5]) == 0:
+                print("statek poszedł na dno!")
+                komp.remove(komp[5])
+        else:
+            print("pudło!")
+    
+if len(ast) == 0:
+    print("wygrał komputer!")
+elif len(komp) == 0:
+    print("wygrałeś!")
