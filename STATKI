@@ -111,3 +111,91 @@ print(moj_statek2_1.pola_masztow)
 
 ##### pokazuje pozcje pól nieaktywnych #####
 print(kukuryku)
+
+#### losowanie statków komputer ####
+import random
+#### losujemy pola statków dla komputera ####
+statki = [5,4,3,3,2,2]
+p_statki = []
+pola_nieaktywne = []
+pola_statku = []
+pola_wszystkich = []
+for i in range(len(statki)):
+    ilemaszt = statki[i]
+    print("to jest ", ilemaszt, "masztowiec")
+    print("podejście")
+    while True:
+        pole_startowe = []
+        x = random.randint(1,10)
+        y = random.randint(1,10)
+        pole_startowe = [x,y]
+        print(pole_startowe)
+        if pole_startowe in pola_nieaktywne:
+            True
+            print("sorry, wybrane pole jest już w liście")
+        else:
+            czy_wpada = 0
+            pion_poziom = random.randint(1,2)
+            print(pion_poziom)
+            pola_statku = []
+            k = 0
+            ciag_pol_k = []
+            pola_obok=[]
+            if pion_poziom ==1:
+                print("wylosowano pion")
+                for j in range(1,ilemaszt+1):
+                    pola_statku.append([x,y+k])
+                    ####k+=1#####
+                    if y+k > 10:
+                        czy_wpada +=1
+                    else: 
+                        czy_wpada+=0
+                    k+=1
+                ks = 0
+                for s in pola_statku: 
+                    ciag_pol_k.append(pola_statku[ks][1])
+                    ks+=1
+                min_k = min(ciag_pol_k)
+                print(min_k)
+                max_k = max(ciag_pol_k)
+                print(max_k)
+                for i in range(min_k - 1, max_k + 2):
+                    for j in range(pola_statku[0][0] - 1, pola_statku[0][0]+2):
+                        pola_obok.append([j,i])
+            else: 
+                print("wylosowano poziom")
+                for j in range(1,ilemaszt+1):
+                    pola_statku.append([x+k,y])
+                    ####k+=1#####
+                    if x+k > 10:
+                        czy_wpada +=1
+                    else: 
+                        czy_wpada+=0
+                    k+=1
+                ks = 0
+                for s in pola_statku: 
+                    ciag_pol_k.append(pola_statku[ks][0])
+                    ks+=1
+                min_k = min(ciag_pol_k)
+                print(min_k)
+                max_k = max(ciag_pol_k)
+                print(max_k)
+                for i in range(pola_statku[0][1] - 1, pola_statku[0][1]+2):
+                    for j in range(min_k - 1, max_k + 2):
+                        pola_obok.append([j,i])
+            for k in pola_statku:
+                if k in pola_nieaktywne:
+                    czy_wpada +=1
+                else:
+                    czy_wpada+=0
+            if czy_wpada >0:
+                True
+            else:
+                pola_nieaktywne.extend(pola_obok)
+                p_statki.append(pola_statku)
+                break
+print("pikobelo")
+print("pola już nieaktywne: ",pola_nieaktywne)
+print("pola statku: ", p_statki)
+
+print(len(p_statki[0]))
