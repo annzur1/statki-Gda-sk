@@ -349,3 +349,339 @@ if czy_przerwac_gracz == 5:
     print("wygrał komputer!")
 elif czy_przerwac_komputer == 5:
     print("wygrałeś!")
+
+
+
+
+
+
+####plansza#####
+
+from tkinter import *
+def klik():
+    if wartosc.get()==2:
+        wybrane_pole=[1,2]
+        print(wybrane_pole)
+    if wartosc.get()==3:
+        wybrane_pole=[1,3]
+        print(wybrane_pole)
+    if wartosc.get()==4:
+        wybrane_pole=[1,4]
+        print(wybrane_pole)
+    if wartosc.get()==5:
+        wybrane_pole=[1,5]
+        print(wybrane_pole)
+    if wartosc.get()==6:
+        wybrane_pole=[1,6]
+        print(wybrane_pole)
+    if wartosc.get()==7:
+        wybrane_pole=[1,7]
+        print(wybrane_pole)
+    if wartosc.get()==8:
+        wybrane_pole=[1,8]
+        print(wybrane_pole)
+    if wartosc.get()==9:
+        wybrane_pole=[1,9]
+        print(wybrane_pole)
+    if wartosc.get()==10:
+        wybrane_pole=[1,10]
+        print(wybrane_pole)
+    if wartosc.get()==11:
+        wybrane_pole=[2,1]
+        print(wybrane_pole)
+    if wartosc.get()==12:
+        wybrane_pole=[2,2]
+        print(wybrane_pole)
+    if wartosc.get()==13:
+        wybrane_pole=[2,3]
+        print(wybrane_pole)
+    if wartosc.get()==14:
+        wybrane_pole=[2,4]
+        print(wybrane_pole)
+    if wartosc.get()==15:
+        wybrane_pole=[2,5]
+        print(wybrane_pole)
+    if wartosc.get()==16:
+        wybrane_pole=[2,6]
+        print(wybrane_pole)
+    if wartosc.get()==17:
+        wybrane_pole=[2,7]
+        print(wybrane_pole)
+    if wartosc.get()==18:
+        wybrane_pole=[2,8]
+        print(wybrane_pole)
+    if wartosc.get()==19:
+        wybrane_pole=[2,9]
+        print(wybrane_pole)
+    if wartosc.get()==20:
+        wybrane_pole=[2,10]
+        print(wybrane_pole)
+    if wartosc.get()==21:
+        wybrane_pole=[3,1]
+        print(wybrane_pole)
+    if wartosc.get()==22:
+        wybrane_pole=[3,2]
+        print(wybrane_pole)
+    if wartosc.get()==23:
+        wybrane_pole=[3,3]
+        print(wybrane_pole)
+    if wartosc.get()==24:
+        wybrane_pole=[3,4]
+        print(wybrane_pole)
+    if wartosc.get()==25:
+        wybrane_pole=[3,5]
+        print(wybrane_pole)
+    if wartosc.get()==26:
+        wybrane_pole=[3,6]
+        print(wybrane_pole)
+    if wartosc.get()==27:
+        wybrane_pole=[3,7]
+        print(wybrane_pole)
+    if wartosc.get()==28:
+        wybrane_pole=[3,8]
+        print(wybrane_pole)
+    if wartosc.get()==29:
+        wybrane_pole=[3,9]
+        print(wybrane_pole)
+    if wartosc.get()==30:
+        wybrane_pole=[3,10]
+        print(wybrane_pole)
+    if wartosc.get()==31:
+        wybrane_pole=[4,1]
+        print(wybrane_pole)
+    if wartosc.get()==32:
+        wybrane_pole=[4,2]
+        print(wybrane_pole)
+    if wartosc.get()==33:
+        wybrane_pole=[4,3]
+        print(wybrane_pole)
+    if wartosc.get()==34:
+        wybrane_pole=[4,4]
+        print(wybrane_pole)
+    if wartosc.get()==35:
+        wybrane_pole=[4,5]
+        print(wybrane_pole)
+    if wartosc.get()==36:
+        wybrane_pole=[4,6]
+        print(wybrane_pole)
+    if wartosc.get()==37:
+        wybrane_pole=[4,7]
+        print(wybrane_pole)
+    if wartosc.get()==38:
+        wybrane_pole=[4,8]
+        print(wybrane_pole)
+    if wartosc.get()==39:
+        wybrane_pole=[4,9]
+        print(wybrane_pole)
+    if wartosc.get()==40:
+        wybrane_pole=[4,10]
+        print(wybrane_pole)
+    if wartosc.get()==41:
+        wybrane_pole=[5,1]
+        print(wybrane_pole)
+    if wartosc.get()==42:
+        wybrane_pole=[5,2]
+        print(wybrane_pole)
+    if wartosc.get()==43:
+        wybrane_pole=[5,3]
+        print(wybrane_pole)
+    if wartosc.get()==44:
+        wybrane_pole=[5,4]
+        print(wybrane_pole)
+    if wartosc.get()==45:
+        wybrane_pole=[5,5]
+        print(wybrane_pole)
+    if wartosc.get()==46:
+        wybrane_pole=[5,6]
+        print(wybrane_pole)
+    if wartosc.get()==47:
+        wybrane_pole=[5,7]
+        print(wybrane_pole)
+    if wartosc.get()==48:
+        wybrane_pole=[5,8]
+        print(wybrane_pole)
+    if wartosc.get()==49:
+        wybrane_pole=[5,9]
+        print(wybrane_pole)
+    if wartosc.get()==50:
+        wybrane_pole=[5,10]
+        print(wybrane_pole)
+    if wartosc.get()==51:
+        wybrane_pole=[6,1]
+        print(wybrane_pole)
+    if wartosc.get()==52:
+        wybrane_pole=[6,2]
+        print(wybrane_pole)
+    if wartosc.get()==53:
+        wybrane_pole=[6,3]
+        print(wybrane_pole)
+    if wartosc.get()==54:
+        wybrane_pole=[6,4]
+        print(wybrane_pole)
+    if wartosc.get()==55:
+        wybrane_pole=[6,5]
+        print(wybrane_pole)
+    if wartosc.get()==56:
+        wybrane_pole=[6,6]
+        print(wybrane_pole)
+    if wartosc.get()==57:
+        wybrane_pole=[6,7]
+        print(wybrane_pole)
+    if wartosc.get()==58:
+        wybrane_pole=[6,8]
+        print(wybrane_pole)
+    if wartosc.get()==59:
+        wybrane_pole=[6,9]
+        print(wybrane_pole)
+    if wartosc.get()==60:
+        wybrane_pole=[6,10]
+        print(wybrane_pole)
+    if wartosc.get()==61:
+        wybrane_pole=[7,1]
+        print(wybrane_pole)
+    if wartosc.get()==62:
+        wybrane_pole=[7,2]
+        print(wybrane_pole)
+    if wartosc.get()==63:
+        wybrane_pole=[7,3]
+        print(wybrane_pole)
+    if wartosc.get()==64:
+        wybrane_pole=[7,4]
+        print(wybrane_pole)
+    if wartosc.get()==65:
+        wybrane_pole=[7,5]
+        print(wybrane_pole)
+    if wartosc.get()==66:
+        wybrane_pole=[7,6]
+        print(wybrane_pole)
+    if wartosc.get()==67:
+        wybrane_pole=[7,7]
+        print(wybrane_pole)
+    if wartosc.get()==68:
+        wybrane_pole=[7,8]
+        print(wybrane_pole)
+    if wartosc.get()==69:
+        wybrane_pole=[7,9]
+        print(wybrane_pole)
+    if wartosc.get()==70:
+        wybrane_pole=[7,10]
+        print(wybrane_pole)
+    if wartosc.get()==71:
+        wybrane_pole=[8,1]
+        print(wybrane_pole)
+    if wartosc.get()==72:
+        wybrane_pole=[8,2]
+        print(wybrane_pole)
+    if wartosc.get()==73:
+        wybrane_pole=[8,3]
+        print(wybrane_pole)
+    if wartosc.get()==74:
+        wybrane_pole=[8,4]
+        print(wybrane_pole)
+    if wartosc.get()==75:
+        wybrane_pole=[8,5]
+        print(wybrane_pole)
+    if wartosc.get()==76:
+        wybrane_pole=[8,6]
+        print(wybrane_pole)
+    if wartosc.get()==77:
+        wybrane_pole=[8,7]
+        print(wybrane_pole)
+    if wartosc.get()==78:
+        wybrane_pole=[8,8]
+        print(wybrane_pole)
+    if wartosc.get()==79:
+        wybrane_pole=[8,9]
+        print(wybrane_pole)
+    if wartosc.get()==80:
+        wybrane_pole=[8,10]
+        print(wybrane_pole)
+    if wartosc.get()==81:
+        wybrane_pole=[9,1]
+        print(wybrane_pole)
+    if wartosc.get()==82:
+        wybrane_pole=[9,2]
+        print(wybrane_pole)
+    if wartosc.get()==83:
+        wybrane_pole=[9,3]
+        print(wybrane_pole)
+    if wartosc.get()==84:
+        wybrane_pole=[9,4]
+        print(wybrane_pole)
+    if wartosc.get()==85:
+        wybrane_pole=[9,5]
+        print(wybrane_pole)
+    if wartosc.get()==86:
+        wybrane_pole=[9,6]
+        print(wybrane_pole)
+    if wartosc.get()==87:
+        wybrane_pole=[9,7]
+        print(wybrane_pole)
+    if wartosc.get()==88:
+        wybrane_pole=[9,8]
+        print(wybrane_pole)
+    if wartosc.get()==89:
+        wybrane_pole=[9,9]
+        print(wybrane_pole)
+    if wartosc.get()==90:
+        wybrane_pole=[9,10]
+        print(wybrane_pole)
+    if wartosc.get()==91:
+        wybrane_pole=[10,1]
+        print(wybrane_pole)
+    if wartosc.get()==92:
+        wybrane_pole=[10,2]
+        print(wybrane_pole)
+    if wartosc.get()==93:
+        wybrane_pole=[10,3]
+        print(wybrane_pole)
+    if wartosc.get()==94:
+        wybrane_pole=[10,4]
+        print(wybrane_pole)
+    if wartosc.get()==95:
+        wybrane_pole=[10,5]
+        print(wybrane_pole)
+    if wartosc.get()==96:
+        wybrane_pole=[10,6]
+        print(wybrane_pole)
+    if wartosc.get()==97:
+        wybrane_pole=[10,7]
+        print(wybrane_pole)
+    if wartosc.get()==98:
+        wybrane_pole=[10,8]
+        print(wybrane_pole)
+    if wartosc.get()==99:
+        wybrane_pole=[10,9]
+        print(wybrane_pole)
+    if wartosc.get()==100:
+        wybrane_pole=[10,10]
+        print(wybrane_pole)
+
+glowneOkno = Tk()
+glowneOkno.geometry("1005x450")
+wartosc=IntVar()
+trafione = [1, 2], [3, 4]
+litery = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
+cyfry = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+y = 0
+for i in range(1, 11):
+    literka = litery[i - 1]
+    for j in range(1, 11):
+        cyferka = cyfry[j - 1]
+        czy_trafiony = [i,j]
+        y += 1
+        if czy_trafiony in trafione:
+            pola = literka, cyferka
+            przycisk = Radiobutton(glowneOkno, text=pola, fg="blue", background = "pink", height = 2, width=5)
+            przycisk.grid(row=i, column=j)
+        else:
+            pierwsza = i
+            druga = j
+            pola = literka, cyferka
+            przycisk = Radiobutton(glowneOkno, text=pola, fg="magenta", background = "pink", height = 2, width=5, value = y, variable=wartosc)
+            przycisk.grid(row=i, column=j)
+
+
+przycisk_sprawdzacz=Button(glowneOkno, text="Zatwierdź", command= klik)
+przycisk_sprawdzacz.grid(row=11, column=5)
+glowneOkno.mainloop()
