@@ -1,0 +1,360 @@
+### próba rozwiązania kodu do statków na podstawie klas i list###
+import random
+import os
+import time
+from colorama import init
+from termcolor import colored
+init()
+
+class statek():
+    pola_masztow = []
+    pola_styczne = [] #### pola styczne do okrętów, tak żeby nie można było stawiac okrętów stycznie do siebie ####
+    zycia = 0
+    def wyznaczanie_pol (self, kukuryku,maszt):
+        print("Podajesz współrzędne pól dla", maszt, "masztowca.")
+        self.pola_masztow = []
+        for i in range(1,maszt+1):
+            while True:
+                pojedyncze_pole =[]
+                for i in range(1,3):
+                    pojedyncze_pole.append(int(input("Podaj współrzędną pola ")))
+                if pojedyncze_pole in kukuryku:
+                    True
+                    print("Podałeś już nieaktywne pole!")
+                else:
+                    break
+            self.pola_masztow.append(pojedyncze_pole)
+            #### tutaj dodajemy przyciski z planszy 10x10 pól w GUI, tak żeby jedna współrzędna była x a druga y ####
+    def zycia_statku(self):
+        self.zycia = self.ile_masztow
+    def wyz_pola_styczne(self):
+        self.pola_styczne = self.pola_masztow
+        #### dodajmy po każdej współrzędnej nieaktywne pola na których nie można już umieścić statków ####
+        pola = self.pola_masztow
+        ciag_pol = []
+        ciag_pol2 = []
+        ####
+        k = 0
+        if pola[0][0] == pola [1][0]:
+            #### sprawdzamy czy statek jest w układzie wertykalnym czy horyzontalnym ####
+            for i in pola:
+                ciag_pol.append(pola[k][1])
+                k+=1
+            malo = min(ciag_pol)
+            duzo = max(ciag_pol)
+            for i in range(pola[0][0] - 1, pola[0][0]+2):
+                dodatek = []
+                for j in range(malo-1, duzo+2):
+                    dodatek.append([i,j])
+                ciag_pol2.extend(dodatek)
+        elif pola[0][1] == pola[1][1]:
+            #### sprawdzamy czy statek jest w układzie wertykalnym czy horyzontalnym ####
+            for i in pola:
+                ciag_pol.append(pola[k][0])
+                k+=1
+            malo = min(ciag_pol)
+            duzo = max(ciag_pol)
+            for i in range(pola[0][1] - 1, pola[0][1]+2):
+                dodatek = []
+                for j in range(malo-1, duzo+2):
+                    dodatek.append([j,i])
+                ciag_pol2.extend(dodatek)
+        self.pola_styczne = ciag_pol2
+
+#### definiowanie listy dla pól zapełnionych####
+kukuryku = []
+
+#### usaewiamy 5 statków: 1 x 5masztów, 1 x 4 maszty, 2 x 3 maszty, 2 x 2 maszty #####
+
+moj_statek5 = statek()
+moj_statek4 = statek()
+moj_statek3 = statek()
+moj_statek3_1 = statek()
+moj_statek2 = statek()
+moj_statek2_1 = statek()
+
+maszt = 5
+moj_statek5.wyznaczanie_pol(kukuryku,maszt)
+moj_statek5.wyz_pola_styczne()
+kukuryku.extend(moj_statek5.pola_styczne)
+
+maszt = 4
+moj_statek4.wyznaczanie_pol(kukuryku,maszt)
+moj_statek4.wyz_pola_styczne()
+kukuryku.extend(moj_statek4.pola_styczne)
+
+maszt = 3
+moj_statek3.wyznaczanie_pol(kukuryku,maszt)
+moj_statek3.wyz_pola_styczne()
+kukuryku.extend(moj_statek3.pola_styczne)
+
+maszt = 3
+moj_statek3_1.wyznaczanie_pol(kukuryku,maszt)
+moj_statek3_1.wyz_pola_styczne()
+kukuryku.extend(moj_statek3_1.pola_styczne)
+
+maszt = 2
+moj_statek2.wyznaczanie_pol(kukuryku,maszt)
+moj_statek2.wyz_pola_styczne()
+kukuryku.extend(moj_statek2.pola_styczne)
+
+maszt = 2
+moj_statek2_1.wyznaczanie_pol(kukuryku,maszt)
+moj_statek2_1.wyz_pola_styczne()
+kukuryku.extend(moj_statek2_1.pola_styczne)
+
+
+#### pokazuje pola statku ####
+print("Współrzędne twojego pięciomasztowca", moj_statek5.pola_masztow)
+print("Współrzędne twojego czteromasztowca", moj_statek4.pola_masztow)
+print("Współrzędne twojego trójmasztowca", moj_statek3.pola_masztow)
+print("Współrzędne twojego trójmasztowca", moj_statek3_1.pola_masztow)
+print("Współrzędne twojego dwumasztowca", moj_statek2.pola_masztow)
+print("Współrzędne twojego dwumasztowca", moj_statek2_1.pola_masztow)
+
+#### wszytskie pola statków w jednej liście
+
+pola_gracza =[]
+pola_gracza.append(moj_statek5.pola_masztow)
+pola_gracza.append(moj_statek4.pola_masztow)
+pola_gracza.append(moj_statek3.pola_masztow)
+pola_gracza.append(moj_statek3.pola_masztow)
+pola_gracza.append(moj_statek2.pola_masztow)
+pola_gracza.append(moj_statek2.pola_masztow)
+
+print("Zajęte przez Ciebie pola: ", pola_gracza)
+
+##### pokazuje pozcje pól nieaktywnych #####
+#### print(kukuryku)
+
+#### losujemy pola statków dla komputera ####
+statki = [5,4,3,3,2,2]
+p_statki = []
+pola_nieaktywne = []
+pola_statku = []
+pola_wszystkich = []
+for i in range(len(statki)):
+    ilemaszt = statki[i]
+    #print("to jest ", ilemaszt, "masztowiec")
+    #print("podejście")
+    while True:
+        pole_startowe = []
+        x = random.randint(1,10)
+        y = random.randint(1,10)
+        pole_startowe = [x,y]
+        #print(pole_startowe)
+        if pole_startowe in pola_nieaktywne:
+            True
+            #print("sorry, wybrane pole jest już w liście")
+        else:
+            czy_wpada = 0
+            pion_poziom = random.randint(1,2)
+            #print(pion_poziom)
+            pola_statku = []
+            k = 0
+            ciag_pol_k = []
+            pola_obok=[]
+            if pion_poziom ==1:
+                #print("wylosowano pion")
+                for j in range(1,ilemaszt+1):
+                    pola_statku.append([x,y+k])
+                    ####k+=1#####
+                    if y+k > 10:
+                        czy_wpada +=1
+                    else:
+                        czy_wpada+=0
+                    k+=1
+                ks = 0
+                for s in pola_statku:
+                    ciag_pol_k.append(pola_statku[ks][1])
+                    ks+=1
+                min_k = min(ciag_pol_k)
+                #print(min_k)
+                max_k = max(ciag_pol_k)
+                #print(max_k)
+                for i in range(min_k - 1, max_k + 2):
+                    for j in range(pola_statku[0][0] - 1, pola_statku[0][0]+2):
+                        pola_obok.append([j,i])
+            else:
+                #print("wylosowano poziom")
+                for j in range(1,ilemaszt+1):
+                    pola_statku.append([x+k,y])
+                    ####k+=1#####
+                    if x+k > 10:
+                        czy_wpada +=1
+                    else:
+                        czy_wpada+=0
+                    k+=1
+                ks = 0
+                for s in pola_statku:
+                    ciag_pol_k.append(pola_statku[ks][0])
+                    ks+=1
+                min_k = min(ciag_pol_k)
+                #print(min_k)
+                max_k = max(ciag_pol_k)
+                #print(max_k)
+                for i in range(pola_statku[0][1] - 1, pola_statku[0][1]+2):
+                    for j in range(min_k - 1, max_k + 2):
+                        pola_obok.append([j,i])
+            for k in pola_statku:
+                if k in pola_nieaktywne:
+                    czy_wpada +=1
+                else:
+                    czy_wpada+=0
+            if czy_wpada >0:
+                True
+            else:
+                pola_nieaktywne.extend(pola_obok)
+                p_statki.append(pola_statku)
+                break
+time.sleep(1)
+print(colored("Pikobelo, komputer rozstawił swoje statki.", "yellow"))
+#print("pola już nieaktywne: ",pola_nieaktywne)
+#print("pola statku: ", p_statki)
+
+time.sleep(1)
+#### Strzelanie i rozstrzyganie gry ####
+#### print(len(pola_gracza)) ####
+
+##### lista żeby komputer nie powtarzał już strzelanych pól ####
+juz_strzelane = []
+twoje_strzaly=[]
+while True:
+    #print(p_statki)
+    #print(pola_gracza)
+    czy_przerwac_gracz = 0
+    czy_przerwac_komputer = 0
+    if len(p_statki[0]) == 0:
+        czy_przerwac_gracz+=1
+    if len(p_statki[1]) == 0:
+        czy_przerwac_gracz+=1
+    if len(p_statki[2]) == 0:
+        czy_przerwac_gracz+=1
+    if len(p_statki[3]) == 0:
+        czy_przerwac_gracz+=1
+    if len(p_statki[4]) == 0:
+        czy_przerwac_gracz+=1
+    if len(p_statki[5]) == 0:
+        czy_przerwac_gracz+=1
+    if len(pola_gracza[0]) == 0:
+        czy_przerwac_komputer+=1
+    if len(pola_gracza[0]) == 0:
+        czy_przerwac_komputer+=1
+    if len(pola_gracza[1]) == 0:
+        czy_przerwac_komputer+=1
+    if len(pola_gracza[2]) == 0:
+        czy_przerwac_gracz+=1
+    if len(pola_gracza[3]) == 0:
+        czy_przerwac_komputer+=1
+    if len(pola_gracza[4]) == 0:
+        czy_przerwac_komputer+=1
+    if len(pola_gracza[5]) == 0:
+        czy_przerwac_komputer+=1
+    if czy_przerwac_gracz == 5:
+        break
+    if czy_przerwac_komputer == 5:
+        break
+    else:
+        x_s = int(input("Podaj współrzędną x do strzału: "))
+        y_s = int(input("Podaj współrzędną y do strzału: "))
+        os.system("cls")
+        strzal = [x_s, y_s]
+        twoje_strzaly.append(strzal)
+        if strzal in p_statki[0]:
+            print(colored("TAK","green"))
+            p_statki[0].remove(strzal)
+            if len(p_statki[0]) == 0:
+                print("Statek poszedł na dno!")
+                print("Oddane przez Ciebie strzały: ", twoje_strzaly)
+        elif strzal in p_statki[1]:
+            print(colored("TAK","green"))
+            p_statki[1].remove(strzal)
+            if len(p_statki[1]) == 0:
+                print("Statek poszedł na dno!")
+                print("Oddane przez Ciebie strzały: ", twoje_strzaly)
+        elif strzal in p_statki[2]:
+            print(colored("TAK","green"))
+            p_statki[2].remove(strzal)
+            if len(p_statki[2]) == 0:
+                print("Statek poszedł na dno!")
+                print("Oddane przez Ciebie strzały: ", twoje_strzaly)
+        elif strzal in p_statki[3]:
+            print(colored("TAK","green"))
+            p_statki[3].remove(strzal)
+            if len(p_statki[3]) == 0:
+                print("Statek poszedł na dno!")
+                print("Oddane przez Ciebie strzały: ", twoje_strzaly)
+        elif strzal in p_statki[4]:
+            print(colored("TAK","green"))
+            p_statki[4].remove(strzal)
+            if len(p_statki[4]) == 0:
+                print("Statek poszedł na dno!")
+                print("Oddane przez Ciebie strzały: ", twoje_strzaly)
+        elif strzal in p_statki[5]:
+            print(colored("TAK","green"))
+            p_statki[5].remove(strzal)
+            if len(p_statki[5]) == 0:
+                print("Statek poszedł na dno!")
+                print("Oddane przez Ciebie strzały: ", twoje_strzaly)
+        else:
+            print(colored("Pudło!", "red"))
+            print("Oddane przez Ciebie strzały: ", twoje_strzaly)
+        time.sleep(1)
+        print("Teraz strzela komputer!!!!!!!!!!!!!!!!!!!!!")
+
+        while True:
+            x_komp = random.randint(1,10)
+            y_komp = random.randint(1,10)
+            strzal_komputera = [x_komp,y_komp]
+            print(strzal_komputera)
+            if strzal_komputera in juz_strzelane:
+                True
+            else:
+                juz_strzelane.append(strzal_komputera)
+                break
+        print("Strzały oddane przez komputer: ", juz_strzelane)
+        if strzal_komputera in pola_gracza[0]:
+            print(colored("Trafiony!", "blue"))
+            pola_gracza[0].remove(strzal_komputera)
+            if len(pola_gracza[0]) == 0:
+                print("Statek poszedł na dno!")
+
+        elif strzal_komputera in pola_gracza[1]:
+            print(colored("Trafiony!", "blue"))
+            pola_gracza[1].remove(strzal_komputera)
+            if len(pola_gracza[1]) == 0:
+                print("Statek poszedł na dno!")
+
+        elif strzal_komputera in pola_gracza[2]:
+            print(colored("Trafiony!", "blue"))
+            pola_gracza[2].remove(strzal_komputera)
+            if len(pola_gracza[2]) == 0:
+                print("Statek poszedł na dno!")
+
+        elif strzal_komputera in pola_gracza[3]:
+            print(colored("Trafiony!", "blue"))
+            pola_gracza[3].remove(strzal_komputera)
+            if len(pola_gracza[3]) == 0:
+                print("Statek poszedł na dno!")
+
+        elif strzal_komputera in pola_gracza[4]:
+            print(colored("Trafiony!", "blue"))
+            pola_gracza[4].remove(strzal_komputera)
+            if len(pola_gracza[4]) == 0:
+                print("Statek poszedł na dno!")
+
+        elif strzal_komputera in pola_gracza[5]:
+            print(colored("Trafiony!", "blue"))
+            pola_gracza[5].remove(strzal_komputera)
+            if len(pola_gracza[5]) == 0:
+                print("Statek poszedł na dno!")
+
+        else:
+            print(colored("Pudło!","magenta"))
+        time.sleep(1)
+
+
+if czy_przerwac_gracz == 5:
+    print("Wygrał komputer!")
+elif czy_przerwac_komputer == 5:
+    print("Wygrałeś!")
